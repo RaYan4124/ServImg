@@ -1,24 +1,14 @@
 <script setup lang="ts">
   import SideBar from './components/layout/SideBar.vue'
-  import Card from './components/layout/Card.vue';
   import Visualizer from './Views/Visualizer.vue';
   import Galery from './Views/Galery.vue';
-  import Uploader from './Views/Uploader.vue';
-  import { ref } from 'vue';
+  import { ref } from 'vue'
 
   export interface Image{
     id: number;
     name: string;
     url: string;
   }
-
-  const imgs = ref<Image[]> ([{id: 0, name :"image0", url : "src/u.jpeg"},
-                          {id: 1, name: "image1", url: "src/d.jpeg"},
-                          {id: 2, name: "image2", url: "src/t.jpeg"},
-                          {id: 3, name: "image3", url: "src/q.jpeg"},
-                          {id: 4, name: "image4", url: "src/c.jpg"}
-  ])
-
   const ActualPage = ref("ça marche ta mere")
 
 </script>
@@ -33,7 +23,7 @@
           <span class="text-gray-500">Gérez et stoquer vos images facilement.</span>
         </header>
         <div>
-          <Uploader/>
+          <router-view/>
         </div>
         
       </main>

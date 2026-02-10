@@ -1,15 +1,16 @@
 <script setup lang="ts">
   import SideBar from './components/layout/SideBar.vue'
-  import Visualizer from './Views/Visualizer.vue';
-  import Galery from './Views/Galery.vue';
-  import { ref } from 'vue'
+  import { useRoute } from 'vue-router';
+  import { computed, ref } from 'vue'
 
   export interface Image{
     id: number;
     name: string;
     url: string;
   }
-  const ActualPage = ref("ça marche ta mere")
+
+  const route = useRoute()
+  const ActualPage = computed(() => route.meta.title || "Visualiseur") // computed reagi au changement de route 
 
 </script>
 

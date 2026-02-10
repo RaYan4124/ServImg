@@ -7,17 +7,20 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
         name: 'visualizer',
-        component: Visualizer
+        component: Visualizer, 
+        meta: {title : "Visualiseur"}
     },
     {
         path:'/galery',
         name:'galery',
-        component:Galery
+        component:Galery, 
+        meta: {title : "Galerie"}
     },
     {
         path:'/upload',
         name:'upload',
-        component: Uploader
+        component: Uploader, 
+        meta: {title : "Uploadeur"}
     }
 ]
 

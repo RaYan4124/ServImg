@@ -4,7 +4,16 @@
     defineProps<{
         images: Image[];
     }>();
+
+    const emit = defineEmits<{
+        'selected-image': [id: number]
+    }>();
+
     const isSelectOpen = ref(false);
+    const SelectId = (e: number)=>{
+        emit('selected-image', e)
+    }
+    
 </script>
 
 <template>
@@ -15,9 +24,9 @@
         </div>
 
         <div v-if="isSelectOpen" class="absolute top-full bg-gray-500 w-80 rounded-lg z-10">
-            <div v-for="img in images" class="group flex gap-12 h-12 transition-all duration-200 rounded-lg hover:border-1 hover:border-white">
+            <div v-for="img in images" @click="SelectId(img.id)" :key="img.id" class="group flex gap-12 h-12 transition-all duration-200 rounded-lg hover:border-1 hover:border-white">
                 <img src="" alt="img.id">
-                <span class="group-hover:text-blue-500 transition-all duration-200">{{ img.name }}</span>
+                <span :key="img.id" class="text-white group-hover:text-blue-500 transition-all duration-200">{{ img.name }}</span>
             </div>
         </div>
     </div>

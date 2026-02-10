@@ -12,14 +12,12 @@
         selectedId.value = id
         imageToShow.value = (imgs.value.find((img) => img.id == id))?.url  //? = optional chaining, permet d'acceder a une propriété qui pourrait ne pas exister sans crash
     }
-
-    
 </script>
 
 <template>
     <div class="pt-8 px-11 flex flex-col gap-8">
         <CustomSelect @selected-image="handleSelector" :images="imgs"/>
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 h-[600px] flex items-center justify-center relative overflow-hidden pb-4">
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 h-[600px] flex items-center justify-center relative overflow-hidden">
             <img :src="imageToShow" alt="">
         </div>
     </div>
